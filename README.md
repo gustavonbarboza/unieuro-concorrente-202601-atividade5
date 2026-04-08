@@ -1,33 +1,226 @@
-# unieuro-concorrente-202601-atividade5
+# Relatório da NOME DA ATIVIDADE
 
-Testar a solução MPI construindo relatório de avaliação de performance para 2, 4, 8, 12 processos.
+**Disciplina:** 
+**Aluno(s):**
+**Turma:**
+**Professor:**
+**Data:**
 
-## Instalação MPI
+---
 
-1) Instalar o MPI para Windows  
-https://www.microsoft.com/en-us/download/details.aspx?id=100593
+# 1. Descrição do Problema
 
-2) Instalar mpi4py
-pip install -r requeriments.txt
+Descreva o problema computacional resolvido pelo programa.
 
-## Onde buscar os dados
+## Orientações para preenchimento
 
-O site do Kaggle apresenta vários desafios, bancos de dados e projetos que estão abertos a comunidade para apoio. Alguns deles tem prêmios em dinheiro.
+Explique:
 
-Para esse experimento devemos buscar o arquivo "nlp_features_train.csv" no Quora Question Paris.
+* Qual problema foi implementado
+* Qual algoritmo foi utilizado
+* Qual o tamanho da entrada utilizada nos testes
+* Qual o objetivo da paralelização
 
-https://www.kaggle.com/datasets/elemento/quora-question-pairs?select=nlp_features_train.csv
+**Questões que devem ser respondidas:**
 
-## Executar
+* Qual é o objetivo do programa?
+* Qual o volume de dados processado?
+* Qual algoritmo foi utilizado?
+* Qual a complexidade aproximada do algoritmo?
 
-Como executar o projeto:
+---
 
-### Versão serial
+# 2. Ambiente Experimental
+
+Descreva o ambiente em que os experimentos foram realizados.
+
+## Orientações
+
+Informar as características do hardware e software utilizados na execução dos testes.
+
+| Item                        | Descrição |
+| --------------------------- | --------- |
+| Processador                 |    i7-12700   |
+| Número de núcleos           |       12      |
+| Memória RAM                 |      16gb     |
+| Sistema Operacional         |  Windows 11   |
+| Linguagem utilizada         |     Pyhton    |
+| Biblioteca de paralelização |       MPI     |
+| Compilador / Versão         | Python 3.13.2 |
+
+---
+
+# 3. Metodologia de Testes
+
+Explique como os experimentos foram conduzidos.
+
+## Orientações
+
+Descrever:
+
+* Como o tempo de execução foi medido
+* Quantas execuções foram realizadas
+* Se foi utilizada média dos tempos
+* Qual tamanho da entrada foi usado
+
+### Configurações testadas
+
+Os experimentos devem ser realizados nas seguintes configurações:
+
+* 1 thread/processo (versão serial)
+* 2 threads/processos
+* 4 threads/processos
+* 8 threads/processos
+* 12 threads/processos
+
+### Procedimento experimental
+
+Descrever:
+
+* Número de execuções para cada configuração
+* Forma de cálculo da média
+* Condições de execução (ex: máquina dedicada, carga do sistema, etc.)
+
+---
+
+# 4. Resultados Experimentais
+
+Preencha a tabela com os **tempos médios de execução** obtidos.
+
+## Orientações
+
+* O tempo deve ser informado em **segundos**
+* Utilizar a **média das execuções**
+
+| Nº Threads/Processos | Tempo de Execução (s) |
+| -------------------- | --------------------- |
+| 1                    | 31.47                 |
+| 2                    | 23.88                 |
+| 4                    | 16.17                 |
+| 8                    | 11.61                 |
+| 12                   | 10.27                 |
+
+---
+
+# 5. Cálculo de Speedup e Eficiência
+
+## Fórmulas Utilizadas
+
+### Speedup
+
 ```
-python avaliador.py
-```
-### Versão distribuída
-```
-mpiexec -n 4 python avaliador_mpi.py
+Speedup(p) = T(1) / T(p)
 ```
 
+Onde:
+
+* **T(1)** = tempo da execução serial
+* **T(p)** = tempo com p threads/processos
+
+### Eficiência
+
+```
+Eficiência(p) = Speedup(p) / p
+```
+
+Onde:
+
+* **p** = número de threads ou processos
+
+---
+
+# 6. Tabela de Resultados
+
+Preencha a tabela abaixo utilizando os tempos medidos.
+
+| Threads/Processos | Tempo (s) | Speedup | Eficiência |
+| ----------------- | --------- | ------- | ---------- |
+| 1                 | 31.47     | 1.0     | 1.0        |
+| 2                 | 23.88     | 1.32    | 0.66       |
+| 4                 | 16.17     | 1.95    | 0.49       |
+| 8                 | 11.61     | 2.71    | 0.34       |
+| 12                | 10.27     | 3.07    | 0.26       |
+
+---
+
+# 7. Gráfico de Tempo de Execução
+
+Construa um gráfico mostrando o **tempo de execução em função do número de threads/processos**.
+
+## Orientações
+
+* Eixo X: número de threads/processos
+* Eixo Y: tempo de execução (segundos)
+
+Inserir o gráfico abaixo:
+
+![Gráfico Tempo Execução](graficos/tempo_execucao.png)
+
+---
+
+# 8. Gráfico de Speedup
+
+Construa um gráfico mostrando o **speedup obtido**.
+
+## Orientações
+
+* Eixo X: número de threads/processos
+* Eixo Y: speedup
+* Incluir também a **linha de speedup ideal (linear)** para comparação
+
+Inserir o gráfico abaixo:
+
+![Gráfico Speedup](graficos/speedup.png)
+
+---
+
+# 9. Gráfico de Eficiência
+
+Construa um gráfico mostrando a **eficiência da paralelização**.
+
+## Orientações
+
+* Eixo X: número de threads/processos
+* Eixo Y: eficiência
+* Valores entre 0 e 1
+
+Inserir o gráfico abaixo:
+
+![Gráfico Eficiência](graficos/eficiencia.png)
+
+---
+
+# 10. Análise dos Resultados
+
+Realize uma análise crítica dos resultados obtidos.
+
+## Questões a serem respondidas
+
+* O speedup obtido foi próximo do ideal?
+* A aplicação apresentou escalabilidade?
+* Em qual ponto a eficiência começou a cair?
+* O número de threads ultrapassa o número de núcleos físicos da máquina?
+* Houve overhead de paralelização?
+
+Discutir possíveis causas para:
+
+* perda de desempenho
+* gargalos no algoritmo
+* sincronização entre threads/processos
+* comunicação entre processos
+* contenção de memória ou cache
+
+---
+
+# 11. Conclusão
+
+Apresente as conclusões do experimento.
+
+## Sugestões de pontos a comentar
+
+* O paralelismo trouxe ganho significativo de desempenho?
+* Qual foi o melhor número de threads/processos?
+* O programa escala bem com o aumento do paralelismo?
+* Quais melhorias poderiam ser feitas na implementação?
+
+---
