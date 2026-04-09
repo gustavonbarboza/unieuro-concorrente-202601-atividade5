@@ -1,10 +1,10 @@
 # Relatório da NOME DA ATIVIDADE
 
-* Disciplina:PROGRAMAÇÃO CONCORRENTE E DISTRIBUÍDA*
-* Aluno(s): Gustavo Barboza*
-* Turma: SI*
-* Professor: Rafael*
-* Data: 08/04/2026*
+* Disciplina: PROGRAMAÇÃO CONCORRENTE E DISTRIBUÍDA
+* Aluno(s): Gustavo Barboza
+* Turma: SI
+* Professor: Rafael
+* Data: 08/04/2026
 
 ---
 
